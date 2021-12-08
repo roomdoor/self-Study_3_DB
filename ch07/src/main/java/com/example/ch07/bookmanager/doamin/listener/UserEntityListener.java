@@ -1,9 +1,9 @@
 package com.example.ch07.bookmanager.doamin.listener;
 
-import com.example.ch06.bookmanager.doamin.User;
-import com.example.ch06.bookmanager.doamin.UserHistory;
-import com.example.ch06.bookmanager.repository.UserHistoryRepository;
-import com.example.ch06.bookmanager.suporter.BeanUtils;
+import com.example.ch07.bookmanager.doamin.User;
+import com.example.ch07.bookmanager.doamin.UserHistory;
+import com.example.ch07.bookmanager.repository.UserHistoryRepository;
+import com.example.ch07.bookmanager.suporter.BeanUtils;
 
 import javax.persistence.PostPersist;
 import javax.persistence.PostUpdate;

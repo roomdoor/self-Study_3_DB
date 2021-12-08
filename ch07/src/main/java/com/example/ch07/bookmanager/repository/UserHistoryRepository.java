@@ -1,6 +1,6 @@
 package com.example.ch07.bookmanager.repository;
 
-import com.example.ch06.bookmanager.doamin.UserHistory;
+import com.example.ch07.bookmanager.doamin.UserHistory;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

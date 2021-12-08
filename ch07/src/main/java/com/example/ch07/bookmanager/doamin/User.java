@@ -1,7 +1,7 @@
 package com.example.ch07.bookmanager.doamin;
 
 
-import com.example.ch06.bookmanager.doamin.listener.UserEntityListener;
+import com.example.ch07.bookmanager.doamin.listener.UserEntityListener;
 import lombok.*;
 
 import javax.persistence.*;

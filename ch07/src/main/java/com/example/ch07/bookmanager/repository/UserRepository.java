@@ -1,7 +1,7 @@
 package com.example.ch07.bookmanager.repository;
 
 
-import com.example.ch06.bookmanager.doamin.User;
+import com.example.ch07.bookmanager.doamin.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -78,6 +78,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByNameContains(String name);
 
     List<User> findByNameLike(String name);
+
 
 
 //------------------------------------------------------------------------------------------------

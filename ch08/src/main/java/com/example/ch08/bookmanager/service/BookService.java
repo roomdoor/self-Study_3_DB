@@ -1,9 +1,8 @@
-package com.example.ch07.bookmanager.service;
+package com.example.ch08.bookmanager.service;
 
-import com.example.ch07.bookmanager.doamin.Author;
-import com.example.ch07.bookmanager.doamin.Book;
-import com.example.ch07.bookmanager.repository.AuthorRepository;
-import com.example.ch07.bookmanager.repository.BookRepository;
+import com.example.ch08.bookmanager.doamin.Book;
+import com.example.ch08.bookmanager.repository.AuthorRepository;
+import com.example.ch08.bookmanager.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;

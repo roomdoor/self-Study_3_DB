@@ -1,6 +1,7 @@
 package com.example.ch08.bookmanager.doamin;
 
 import lombok.*;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Entity
+@Where(clause = "deleted = false")
 public class Book extends BaseEntity {
 
     @Id
@@ -36,9 +38,11 @@ public class Book extends BaseEntity {
     @ToString.Exclude
     private List<Review> reviews = new ArrayList<>();
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     @ToString.Exclude
     private Publisher publisher;
+
+    private boolean deleted;
 
     //    @ManyToMany
     @OneToMany

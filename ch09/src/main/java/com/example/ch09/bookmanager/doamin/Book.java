@@ -1,6 +1,9 @@
 package com.example.ch09.bookmanager.doamin;
 
+import com.example.ch09.bookmanager.doamin.converter.BookStatusConverter;
+import com.example.ch09.bookmanager.repository.dto.BookStatus;
 import lombok.*;
+import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
@@ -43,6 +46,9 @@ public class Book extends BaseEntity {
     private Publisher publisher;
 
     private boolean deleted;
+
+    @Convert(converter = BookStatusConverter.class)
+    private BookStatus status; // 판매상태
 
     //    @ManyToMany
     @OneToMany

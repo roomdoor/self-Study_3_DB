@@ -1,5 +1,6 @@
 package com.example.ch09.bookmanager.bookmanager.repository;
 
+import com.example.ch09.bookmanager.doamin.Address;
 import com.example.ch09.bookmanager.doamin.Gender;
 import com.example.ch09.bookmanager.doamin.User;
 import com.example.ch09.bookmanager.doamin.UserHistory;
@@ -9,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -21,7 +23,8 @@ class UserRepositoryTest {
     UserRepository userRepository;
     @Autowired
     UserHistoryRepository userHistoryRepository;
-
+    @Autowired
+    private EntityManager entityManager;
 
     @Test
     void listenerTest() {
@@ -111,5 +114,39 @@ class UserRepositoryTest {
         result.forEach(System.out::println);
 
         System.out.println("UserHistory.getUser() : " + userHistoryRepository.findAll().get(0).getUser());
+    }
+
+
+    @Test
+    void embedTest() {
+
+        userRepository.findAll().forEach(System.out::println);
+
+        User user = new User();
+        user.setName("sihwa");
+        user.setHomeAddress(new Address("서울시", "양천구", "목동","블레어빌"));
+        user.setCompanyAddress(new Address("서울시","어딘가","저기쯤","어딘가"));
+
+        userRepository.save(user);
+
+        User user1 = new User();
+        user1.setName("LSH");
+        user1.setHomeAddress(null);
+        user1.setCompanyAddress(null);
+
+        userRepository.save(user1);
+
+        User user2 = new User();
+        user2.setName("LLSSHH");
+        user2.setHomeAddress(new Address());
+        user2.setCompanyAddress(new Address());
+
+        userRepository.save(user2);
+
+        entityManager.clear();
+
+        userRepository.findAll().forEach(System.out::println);
+        userHistoryRepository.findAll().forEach(System.out::println);
+        userRepository.findALlRawRecord().forEach(a -> System.out.println(a.values()));
     }
 }
